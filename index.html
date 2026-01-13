@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Christian Romano | Links</title>
+    <meta name="description" content="Christian Romano — leadership, systems, and presence under pressure." />
+
+    <!--
+      QUICK EDIT SECTION (constants)
+      1) Primary accent color: update --accent
+      2) Name, subtitle, bio, and button labels/URLs: update the marked comments in the body
+      3) Background glow intensity: adjust --glow
+    -->
+    <style>
+      :root {
+        --bg: #0c0f1a;
+        --bg-2: #101425;
+        --card: rgba(20, 24, 38, 0.86);
+        --text: #f4f6fb;
+        --muted: #b8bfcc;
+        --accent: #e02b2b;
+        --accent-soft: rgba(224, 43, 43, 0.15);
+        --border: rgba(255, 255, 255, 0.08);
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        --radius: 20px;
+        --glow: 0.55;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top left, rgba(224, 43, 43, calc(0.25 * var(--glow))), transparent 40%),
+          radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 35%),
+          linear-gradient(160deg, var(--bg), var(--bg-2));
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 40px 18px 60px;
+      }
+
+      main {
+        width: min(680px, 100%);
+      }
+
+      .hero {
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 32px 28px;
+        border-radius: var(--radius);
+        backdrop-filter: blur(18px);
+      }
+
+      .avatar {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--text);
+        background: linear-gradient(135deg, rgba(224, 43, 43, 0.25), rgba(255, 255, 255, 0.05));
+        border: 1px solid rgba(224, 43, 43, 0.5);
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 3vw, 2.4rem);
+        margin-bottom: 8px;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 1.05rem;
+        margin-bottom: 14px;
+      }
+
+      .bio {
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .pill {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+      }
+
+      section {
+        margin-top: 26px;
+      }
+
+      section h2 {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      .links {
+        display: grid;
+        gap: 14px;
+      }
+
+      .link-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 18px;
+        font-size: 1rem;
+        text-decoration: none;
+        color: var(--text);
+        background: rgba(16, 19, 32, 0.9);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        box-shadow: 0 14px 26px rgba(0, 0, 0, 0.25);
+      }
+
+      .link-button .label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 500;
+      }
+
+      .link-button svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      .link-button:hover,
+      .link-button:focus-visible {
+        transform: translateY(-1px);
+        border-color: rgba(224, 43, 43, 0.6);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(224, 43, 43, 0.2);
+        outline: none;
+      }
+
+      .link-button:focus-visible {
+        box-shadow: 0 0 0 3px rgba(224, 43, 43, 0.4);
+      }
+
+      .featured {
+        border: 1px solid rgba(224, 43, 43, 0.7);
+        background: linear-gradient(140deg, rgba(224, 43, 43, 0.2), rgba(20, 24, 38, 0.9));
+      }
+
+      .featured .badge {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+      }
+
+      footer {
+        margin-top: 30px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 560px) {
+        body {
+          padding: 28px 16px 50px;
+        }
+
+        .hero {
+          padding: 26px 20px;
+        }
+
+        .link-button {
+          padding: 14px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <div class="avatar" aria-label="Christian Romano initials">CR</div>
+        <h1><!-- Replace Name -->Christian Romano</h1>
+        <p class="subtitle"><!-- Replace Subtitle -->Restaurant leadership. Systems. Presence under pressure.</p>
+        <p class="bio"><!-- Replace Bio -->I help leaders build teams that hold up in the rush—clear, calm, consistent.</p>
+
+        <div class="pill-row" aria-label="Social proof">
+          <span class="pill">New videos weekly</span>
+          <span class="pill">Leadership + Hospitality</span>
+          <span class="pill">Practical + Fun</span>
+        </div>
+      </header>
+
+      <section aria-labelledby="featured-links">
+        <h2 id="featured-links">Featured</h2>
+        <div class="links">
+          <a class="link-button featured" href="https://example.com" target="_blank" rel="noopener">
+            <span class="label">
+              <!-- Replace Button Label + URL -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 3.25l2.12 4.3 4.75.69-3.44 3.35.81 4.73L12 14.9l-4.24 2.42.81-4.73L5.13 8.24l4.75-.69L12 3.25z" />
+              </svg>
+              Start Here
+            </span>
+            <span class="badge">Featured</span>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="follow-links">
+        <h2 id="follow-links">Follow</h2>
+        <nav class="links" aria-label="Follow">
+          <a class="link-button" href="https://example.com" target="_blank" rel="noopener">
+            <span class="label">
+              <!-- Replace Button Label + URL -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M21.6 7.2c-.2-.8-.9-1.4-1.7-1.6C18.4 5 12 5 12 5s-6.4 0-7.9.6c-.8.2-1.4.8-1.7 1.6C2 8.7 2 12 2 12s0 3.3.4 4.8c.2.8.9 1.4 1.7 1.6 1.5.6 7.9.6 7.9.6s6.4 0 7.9-.6c.8-.2 1.4-.8 1.7-1.6.4-1.5.4-4.8.4-4.8s0-3.3-.4-4.8zM10 15.5V8.5l6 3.5-6 3.5z" />
+              </svg>
+              YouTube
+            </span>
+          </a>
+          <a class="link-button" href="https://example.com" target="_blank" rel="noopener">
+            <span class="label">
+              <!-- Replace Button Label + URL -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M17.5 3a4.5 4.5 0 0 1 4.5 4.5v9a4.5 4.5 0 0 1-4.5 4.5h-11A4.5 4.5 0 0 1 2 16.5v-9A4.5 4.5 0 0 1 6.5 3h11zM10.5 9.6l-.6 1.8h3.7l-.4 1.3h-3.7l-.7 2.1h3.4l-.4 1.2H8.1l1.8-6.4h2.3z" />
+              </svg>
+              TikTok
+            </span>
+          </a>
+          <a class="link-button" href="https://example.com" target="_blank" rel="noopener">
+            <span class="label">
+              <!-- Replace Button Label + URL -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M16 3h-8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5zm3 13a3 3 0 0 1-3 3h-8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8z" />
+                <path d="M12 8.3a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4zm0 5.4a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4z" />
+                <circle cx="17.2" cy="6.8" r="1.2" />
+              </svg>
+              Instagram
+            </span>
+          </a>
+        </nav>
+      </section>
+
+      <section aria-labelledby="work-links">
+        <h2 id="work-links">Work With Me</h2>
+        <nav class="links" aria-label="Work with me">
+          <a class="link-button" href="mailto:hello@example.com">
+            <span class="label">
+              <!-- Replace Button Label + URL -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zm0 2v.5l8 5 8-5V7H4zm16 10V9.9l-7.4 4.6a2 2 0 0 1-2.1 0L4 9.9V17h16z" />
+              </svg>
+              Email
+            </span>
+          </a>
+          <a class="link-button" href="https://example.com" target="_blank" rel="noopener">
+            <span class="label">
+              <!-- Replace Button Label + URL -->
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M7 2h10a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v2h12V5a1 1 0 0 0-1-1H7zm11 6H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9z" />
+              </svg>
+              Book a Call
+            </span>
+          </a>
+        </nav>
+      </section>
+
+      <footer>
+        &copy; <span id="year"></span> Christian Romano
+      </footer>
+    </main>
+
+    <script>
+      const yearEl = document.getElementById("year");
+      yearEl.textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
